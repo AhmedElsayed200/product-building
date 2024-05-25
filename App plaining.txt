@@ -1,0 +1,58 @@
+-> Install needed dependincies:
+   - Vite + React + TS
+   - tailwind
+
+-> Implement One card with static design and dummy data: 30min
+   - image
+   - title
+   - description
+   - colors
+   - price
+   - category
+   - edit and remove buttons
+
+-> Add 8 Items of the card: 10min
+   - copy/past the card component 8 times
+   - style the grid shape (container)
+ 
+-> Add the state (array of objects): 15min
+   - add the card states to the parent (app.tsx)
+   - id string (string)
+   - img url (string)
+   - title (string)
+   - desc (string)
+   - price (number)
+   - colors (string[] or keyof[])
+   - category name + category img url (type of string) - they have relation
+
+-> add "Build a Product" button: 45min
+   - it is a component (popup) that takes state and setstate to increment on it
+   - the blur effect
+   - id string (string)
+   - title (string) 
+   - desc (string)
+   - img url (string)
+   - price (number)
+   - category name -select (type of string) - mapped with image
+   - colors (string[] or keyof[])
+
+-> snake alert after success addition: 5min
+
+-> Implement "Edit" button functionality: 20min
+   - same popup for "Build a Product"
+   - submit and cancel button functionalities
+
+-> snake alert after success edit: 5min
+
+-> Implement Remove button functionality: 10min
+   - filter with id and remove
+   - popup with title and desc
+   - yes remove button
+   - cancel button
+
+-> snake alert after success remove: 5min
+
+-> Split components for reusability: 10min
+   - buttons 
+   - image 
+   
