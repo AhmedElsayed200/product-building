@@ -1,14 +1,12 @@
-import ICard from "../interfaces/card";
-
-interface ICategoryImg {
-  [key: string]: string;
-}
+import ICard, { ICategoryImg, TColor } from "../interfaces/card";
 
 export const categoryImg: ICategoryImg = {
   Shoes:
     "https://cdn.thewirecutter.com/wp-content/media/2023/09/running-shoes-2048px-5946.jpg",
   Food: "https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg",
 };
+
+export const allColors: TColor[] = ["blue", "gray", "green", "red"];
 
 export const cardsDate: ICard[] = [
   {

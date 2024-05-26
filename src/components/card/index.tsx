@@ -4,7 +4,7 @@ import "./index.css";
 
 const Card = (props: ICard) => {
   const { img_url, title, description, price, category, colors } = props;
-  console.log(categoryImg[category], img_url);
+
   return (
     <div className="max-w-64 border-2 border-gray-100 border-solid rounded p-2">
       <img src={img_url} alt={title} className="rounded mb-2" />
