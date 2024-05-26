@@ -1,5 +1,15 @@
 import ICard from "../interfaces/card";
 
+interface ICategoryImg {
+  [key: string]: string;
+}
+
+export const categoryImg: ICategoryImg = {
+  Shoes:
+    "https://cdn.thewirecutter.com/wp-content/media/2023/09/running-shoes-2048px-5946.jpg",
+  Food: "https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg",
+};
+
 export const cardsDate: ICard[] = [
   {
     id: "id1",
@@ -9,7 +19,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id2",
@@ -19,7 +29,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id3",
@@ -29,7 +39,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id4",
@@ -39,7 +49,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id5",
@@ -49,7 +59,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id6",
@@ -59,7 +69,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id7",
@@ -69,7 +79,7 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
   {
     id: "id8",
@@ -79,6 +89,6 @@ export const cardsDate: ICard[] = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos dolore error enim perspiciatis? Animi, ab voluptatem placeat nulla laborum doloremque",
     price: 320,
     colors: ["blue", "gray", "green"],
-    category: "Nike",
+    category: "Shoes",
   },
 ];
