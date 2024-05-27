@@ -9,6 +9,7 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
 
   const addProduct = (product: ICard) => {
+    product = { ...product, id: `id${Math.random() * 999999}` };
     setCards([...cards, product]);
   };
 

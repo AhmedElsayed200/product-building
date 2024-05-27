@@ -18,7 +18,6 @@ const CardForm = (props: IProps) => {
     colors: [],
     category: "Shoes",
   });
-  console.log(product);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
@@ -30,7 +29,6 @@ const CardForm = (props: IProps) => {
   const handleChangeColor = (e: MouseEvent<HTMLElement>, color: TColor) => {
     if (product.colors?.includes(color)) {
       const newColors = product.colors?.filter((c) => c !== color);
-      console.log(newColors);
       setProduct({ ...product, colors: newColors });
     } else {
       const newColors = product.colors;
@@ -59,6 +57,7 @@ const CardForm = (props: IProps) => {
             type="text"
             id="title"
             name="title"
+            required
             className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
           />
         </div>
@@ -72,6 +71,7 @@ const CardForm = (props: IProps) => {
             type="text"
             id="description"
             name="description"
+            required
             className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
           />
         </div>
@@ -85,6 +85,7 @@ const CardForm = (props: IProps) => {
             type="text"
             id="img_url"
             name="img_url"
+            required
             className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
           />
         </div>
@@ -98,6 +99,7 @@ const CardForm = (props: IProps) => {
             type="number"
             id="price"
             name="price"
+            required
             className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
           />
         </div>
