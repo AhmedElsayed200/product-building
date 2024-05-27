@@ -10,6 +10,6 @@ export default interface ICard {
   title: string;
   description: string;
   price: number;
-  colors: TColor[];
+  colors?: TColor[];
   category: TCategory;
 }

@@ -12,7 +12,7 @@ const Card = (props: ICard) => {
       <p className="text-gray-400 mb-3 truncate_two max-h-12">{description}</p>
       {/* colors */}
       <div className="flex flex-row gap-x-1 mb-3">
-        {colors.map((color) => (
+        {colors?.map((color) => (
           <div
             key={color}
             className="w-4 h-4 rounded-full"
