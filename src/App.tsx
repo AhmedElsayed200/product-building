@@ -1,16 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 import Card from "./components/card";
 import { cardsDate } from "./data/cardsData";
 import CardForm from "./components/card form";
 import ICard from "./interfaces/card";
+import RemoveModal from "./components/remove modal";
 
 export default function App() {
-  const [cards, setCards] = useState(cardsDate);
-  const [showModal, setShowModal] = useState(false);
+  const [cards, setCards] = useState<ICard[]>(cardsDate);
+  const [showModal, setShowModal] = useState<string>("");
+  const [toBeRemoved, setToBeRemoved] = useState<string>("");
+
+  const handleCloseModal = () => {
+    setShowModal("");
+  };
 
   const addProduct = (product: ICard) => {
     product = { ...product, id: `id${Math.random() * 999999}` };
     setCards([...cards, product]);
+  };
+
+  const removeProduct = () => {
+    const newCards = cards.filter((card) => card.id !== toBeRemoved);
+    setCards(newCards);
+    handleCloseModal();
+  };
+
+  const handleShowRemoveModal = (e: MouseEvent<HTMLElement>, id: string) => {
+    setShowModal("remove product");
+    setToBeRemoved(id);
   };
 
   useEffect(() => {
@@ -24,7 +41,7 @@ export default function App() {
   return (
     <div className="flex flex-col items-center">
       <button
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal("add product")}
         className="py-2 px-1 bg-blue-600 text-white font-bold rounded mt-10"
       >
         Build a Product
@@ -33,20 +50,18 @@ export default function App() {
         {cards.map((card) => (
           <Card
             key={card.id}
-            id={card.id}
-            img_url={card.img_url}
-            title={card.title}
-            description={card.description}
-            price={card.price}
-            colors={card.colors}
-            category={card.category}
+            productInfo={card}
+            showRemoveModal={handleShowRemoveModal}
           />
         ))}
       </div>
-      {showModal && (
-        <CardForm
-          addProduct={addProduct}
-          closeCard={() => setShowModal(false)}
+      {showModal === "add product" && (
+        <CardForm addProduct={addProduct} closeCard={handleCloseModal} />
+      )}
+      {showModal === "remove product" && (
+        <RemoveModal
+          handleSubmit={removeProduct}
+          closeCard={handleCloseModal}
         />
       )}
     </div>

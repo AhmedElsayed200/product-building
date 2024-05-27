@@ -1,9 +1,16 @@
+import { MouseEvent } from "react";
 import { categoryImg } from "../../data/cardsData";
 import ICard from "../../interfaces/card";
 import "./index.css";
 
-const Card = (props: ICard) => {
-  const { img_url, title, description, price, category, colors } = props;
+interface IProps {
+  productInfo: ICard;
+  showRemoveModal: (e: MouseEvent<HTMLElement>, id: string) => void;
+}
+
+const Card = ({ productInfo, showRemoveModal }: IProps) => {
+  const { id, img_url, title, description, price, category, colors } =
+    productInfo;
 
   return (
     <div className="max-w-64 border-2 border-gray-100 border-solid rounded p-2">
@@ -36,7 +43,10 @@ const Card = (props: ICard) => {
         <button className="text-white font-bold py-2.5 bg-blue-700 rounded flex-1">
           Edit
         </button>
-        <button className="text-white font-bold py-2.5 bg-red-700 rounded flex-1">
+        <button
+          onClick={(e) => showRemoveModal(e, id)}
+          className="text-white font-bold py-2.5 bg-red-700 rounded flex-1"
+        >
           Remove
         </button>
       </div>
