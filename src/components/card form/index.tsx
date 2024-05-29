@@ -4,6 +4,7 @@ import { ICard, TColor } from "../../interfaces/card";
 import Modal from "../ui/modal";
 import Input from "../ui/input";
 import { FormInputs } from "../../data/formData";
+import Button from "../ui/button";
 
 interface IProps {
   addProduct: (product: ICard) => void;
@@ -40,17 +41,13 @@ const CardForm = (props: IProps) => {
     }
   };
 
-  const handelSubmit = () => {
+  const handleSubmit = () => {
     addProduct(product);
     closeCard();
   };
 
   return (
-    <Modal
-      handleSubmit={handelSubmit}
-      closeCard={closeCard}
-      title="ADD A NEW PRODUCT"
-    >
+    <Modal title="ADD A NEW PRODUCT">
       <div>
         <div className="flex flex-col gap-y-2">
           {FormInputs.map((data) => (
@@ -65,7 +62,6 @@ const CardForm = (props: IProps) => {
                 id={data.id}
                 name={data.name}
                 required
-                className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
               />
             </div>
           ))}
@@ -99,6 +95,14 @@ const CardForm = (props: IProps) => {
               );
             })}
           </div>
+        </div>
+        <div className="flex flex-row gap-x-1 mt-4">
+          <Button onClick={handleSubmit} className="text-white bg-blue-700">
+            Submit
+          </Button>
+          <Button onClick={closeCard} className="text-black bg-gray-100">
+            Cancel
+          </Button>
         </div>
       </div>
     </Modal>
