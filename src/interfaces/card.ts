@@ -4,7 +4,7 @@ type TCategory = "Shoes" | "Food";
 export interface ICategoryImg {
   [key: string]: string;
 }
-export default interface ICard {
+export interface ICard {
   id: string;
   img_url: string;
   title: string;
@@ -12,4 +12,11 @@ export default interface ICard {
   price: number;
   colors?: TColor[];
   category: TCategory;
+}
+
+export interface IFormInput {
+  label: string;
+  type: string;
+  id: string;
+  name: "title" | "description" | "price" | "img_url";
 }

@@ -1,4 +1,4 @@
-import ICard, { ICategoryImg, TColor } from "../interfaces/card";
+import { ICard, ICategoryImg, TColor } from "../interfaces/card";
 
 export const categoryImg: ICategoryImg = {
   Shoes:

@@ -52,7 +52,14 @@
 
 -> snake alert after success remove: 5min
 
--> Split components for reusability: 10min
+-> Split components for reusability: 10min *
    - buttons 
-   - image 
+   - image
+   - input fields
+
+-> form input list *
+
+-> validation function errors *
+
+
    

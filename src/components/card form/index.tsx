@@ -1,7 +1,9 @@
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { allColors } from "../../data/cardsData";
-import ICard, { TColor } from "../../interfaces/card";
+import { ICard, TColor } from "../../interfaces/card";
 import Modal from "../ui/modal";
+import Input from "../ui/input";
+import { FormInputs } from "../../data/formData";
 
 interface IProps {
   addProduct: (product: ICard) => void;
@@ -51,62 +53,22 @@ const CardForm = (props: IProps) => {
     >
       <div>
         <div className="flex flex-col gap-y-2">
-          <div className="flex flex-col">
-            <label htmlFor="title" className="text-sm font-semibold">
-              Product Title
-            </label>
-            <input
-              onChange={handleChange}
-              value={product.title}
-              type="text"
-              id="title"
-              name="title"
-              required
-              className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="description" className="text-sm font-semibold">
-              Product Description
-            </label>
-            <input
-              onChange={handleChange}
-              value={product.description}
-              type="text"
-              id="description"
-              name="description"
-              required
-              className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="img_url" className="text-sm font-semibold">
-              Product Imgage URL
-            </label>
-            <input
-              onChange={handleChange}
-              value={product.img_url}
-              type="text"
-              id="img_url"
-              name="img_url"
-              required
-              className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="price" className="text-sm font-semibold">
-              Product Price
-            </label>
-            <input
-              onChange={handleChange}
-              value={product.price}
-              type="number"
-              id="price"
-              name="price"
-              required
-              className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
-            />
-          </div>
+          {FormInputs.map((data) => (
+            <div className="flex flex-col" key={data.label}>
+              <label htmlFor={data.name} className="text-sm font-semibold">
+                {data.label}
+              </label>
+              <Input
+                onChange={handleChange}
+                value={product[data.name]}
+                type={data.type}
+                id={data.id}
+                name={data.name}
+                required
+                className="p-2 rounded-md drop-shadow	text-gray-400 text-sm focus:outline-none focus:border-2 focus:border-blue-500"
+              />
+            </div>
+          ))}
           <div className="flex flex-col">
             <label htmlFor="category" className="text-sm font-semibold">
               Product Category
