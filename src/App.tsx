@@ -1,8 +1,8 @@
-import { useEffect, useState, MouseEvent } from "react";
+import { useEffect, useState, MouseEvent, FormEvent } from "react";
 import Card from "./components/card";
 import { cardsDate } from "./data/cardsData";
 import CardForm from "./components/card form";
-import ICard from "./interfaces/card";
+import { ICard } from "./interfaces/card";
 import RemoveModal from "./components/remove modal";
 
 export default function App() {
@@ -19,7 +19,8 @@ export default function App() {
     setCards([...cards, product]);
   };
 
-  const removeProduct = () => {
+  const removeProduct = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const newCards = cards.filter((card) => card.id !== toBeRemoved);
     setCards(newCards);
     handleCloseModal();

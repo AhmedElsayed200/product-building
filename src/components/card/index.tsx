@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 import { categoryImg } from "../../data/cardsData";
-import ICard from "../../interfaces/card";
+import { ICard } from "../../interfaces/card";
 import "./index.css";
 
 interface IProps {
