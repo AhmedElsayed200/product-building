@@ -1,4 +1,4 @@
-import { ICard, ICategoryImg, TColor } from "../interfaces/card";
+import { ICard, ICardErrors, ICategoryImg, TColor } from "../interfaces/card";
 
 export const categoryImg: ICategoryImg = {
   Shoes:
@@ -90,3 +90,20 @@ export const cardsDate: ICard[] = [
     category: "Shoes",
   },
 ];
+
+export const defaultValues: ICard = {
+  id: "",
+  img_url: "",
+  title: "",
+  description: "",
+  price: 0,
+  colors: [],
+  category: "Shoes",
+};
+
+export const defaultErros: ICardErrors = {
+  img_url: "",
+  title: "",
+  description: "",
+  price: "",
+};

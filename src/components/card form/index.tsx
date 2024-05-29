@@ -1,10 +1,12 @@
 import { ChangeEvent, FormEvent, MouseEvent, useState } from "react";
-import { allColors } from "../../data/cardsData";
+import { allColors, defaultErros, defaultValues } from "../../data/cardsData";
 import { ICard, TColor } from "../../interfaces/card";
 import Modal from "../ui/modal";
 import Input from "../ui/input";
 import { FormInputs } from "../../data/formData";
 import Button from "../ui/button";
+import { formInputValidation } from "../../validation";
+import ErrorText from "../ui/error";
 
 interface IProps {
   addProduct: (product: ICard) => void;
@@ -13,21 +15,15 @@ interface IProps {
 
 const CardForm = (props: IProps) => {
   const { addProduct, closeCard } = props;
-  const [product, setProduct] = useState<ICard>({
-    id: "",
-    img_url: "",
-    title: "",
-    description: "",
-    price: 0,
-    colors: [],
-    category: "Shoes",
-  });
+  const [errors, setErrors] = useState(defaultErros);
+  const [product, setProduct] = useState<ICard>(defaultValues);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
   ) => {
     const name = e.target.name;
     setProduct({ ...product, [name]: e.target.value });
+    setErrors({ ...errors, [name]: "" });
   };
 
   const handleChangeColor = (e: MouseEvent<HTMLElement>, color: TColor) => {
@@ -43,6 +39,10 @@ const CardForm = (props: IProps) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const err = formInputValidation(product);
+    setErrors(err);
+    const isError = Object.values(err).some((ele) => ele.length >= 1);
+    if (isError) return;
     addProduct(product);
     closeCard();
   };
@@ -61,8 +61,8 @@ const CardForm = (props: IProps) => {
               type={data.type}
               id={data.id}
               name={data.name}
-              required
             />
+            <ErrorText text={errors[data.name]} />
           </div>
         ))}
         <div className="flex flex-col">

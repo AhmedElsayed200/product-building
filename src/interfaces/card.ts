@@ -14,6 +14,13 @@ export interface ICard {
   category: TCategory;
 }
 
+export interface ICardErrors {
+  title: string;
+  description: string;
+  img_url: string;
+  price: string;
+}
+
 export interface IFormInput {
   label: string;
   type: string;
